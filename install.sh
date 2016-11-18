@@ -6,5 +6,4 @@ sudo apt-get update
 sudo apt-get install sublime-text-installer
 sudo apt-get install libopencv-dev python-opencv
 git clone https://github.com/mfranzs/splash_cv_class.git
-cd cv_class
-subl read_webcam.py
+subl splash_cv_class/read_webcam.py
