@@ -8,4 +8,4 @@ sudo apt-get install libopencv-dev python-opencv
 sudo apt-get install python-pygame
 git clone https://github.com/mfranzs/splash_cv_class.git
 subl splash_cv_class splash_cv_class/read_webcam.py
-xdg-open https://github.com/mfranzs/splash_cv_class/README.md
+xdg-open https://github.com/mfranzs/splash_cv_class/blob/master/README.md
