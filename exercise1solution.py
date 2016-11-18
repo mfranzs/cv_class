@@ -1,21 +1,15 @@
 # Press CTRL + B to run this file (Select "Python")
 
 def process_image(img, width, height):
-	for x in range(width):
-		for y in range(height):
-			pixel = img[y][x]
-			b, g, r = pixel
+    for x in range(width):
+        for y in range(height):
+            pixel = img[y][x]
+            b, g, r = pixel
 
-			if b == max(b, g, r):
-				img[y][x] = (255, 0, 0)
+            if r > b + 40 and r > g + 40:
+                img[y][x] = (0, 0, 255)
 
-			if g == max(b, g, r):
-				img[y][x] = (0, 255, 0)
-
-			if r == max(b, g, r):
-				img[y][x] = (0, 0, 255)
-
-	return img
+    return img
 
 
 # Be careful changing things below this line! =============================
@@ -29,7 +23,7 @@ while(True):
     # Capture frame-by-frame
     ret, img = cap.read()
     # Rescale the image for speed
-    SCALE = .4
+    SCALE = .2
     img = cv2.resize(img,None,fx=SCALE, fy=SCALE)
     height, width, _ = img.shape
 

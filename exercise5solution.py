@@ -1,21 +1,13 @@
 # Press CTRL + B to run this file (Select "Python")
 
 def process_image(img, width, height):
-	for x in range(width):
-		for y in range(height):
-			pixel = img[y][x]
-			b, g, r = pixel
+    # img = cv2.Canny(img,200,250)
 
-			if b == max(b, g, r):
-				img[y][x] = (255, 0, 0)
+    kernel = np.ones((11,11),np.float32)/11/11
+    img = cv2.filter2D(img,-1,kernel)
 
-			if g == max(b, g, r):
-				img[y][x] = (0, 255, 0)
 
-			if r == max(b, g, r):
-				img[y][x] = (0, 0, 255)
-
-	return img
+    return img
 
 
 # Be careful changing things below this line! =============================
@@ -29,7 +21,7 @@ while(True):
     # Capture frame-by-frame
     ret, img = cap.read()
     # Rescale the image for speed
-    SCALE = .4
+    SCALE = 1
     img = cv2.resize(img,None,fx=SCALE, fy=SCALE)
     height, width, _ = img.shape
 
