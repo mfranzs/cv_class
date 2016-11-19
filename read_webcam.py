@@ -6,14 +6,10 @@ def process_image(img, width, height):
 			pixel = img[y][x]
 			b, g, r = pixel
 
+			img[y][x] = (0, g, 0)
+
 			if b == max(b, g, r):
 				img[y][x] = (255, 0, 0)
-
-			if g == max(b, g, r):
-				img[y][x] = (0, 255, 0)
-
-			if r == max(b, g, r):
-				img[y][x] = (0, 0, 255)
 
 	return img
 
@@ -26,23 +22,23 @@ import cv2
 cap = cv2.VideoCapture(0) # Open a new video capture
 
 while(True):
-    # Capture frame-by-frame
-    ret, img = cap.read()
-    # Rescale the image for speed
-    SCALE = .4
-    img = cv2.resize(img,None,fx=SCALE, fy=SCALE)
-    height, width, _ = img.shape
+	# Capture frame-by-frame
+	ret, img = cap.read()
+	# Rescale the image for speed
+	SCALE = .4
+	img = cv2.resize(img,None,fx=SCALE, fy=SCALE)
+	height, width, _ = img.shape
 
-    # Run the image through processing
-    img = process_image(img, width, height)
+	# Run the image through processing
+	img = process_image(img, width, height)
 
-    # Rescale the image back to size
-    # img = cv2.resize(img,None,fx=1/SCALE, fy=1/SCALE)
+	# Rescale the image back to size
+	# img = cv2.resize(img,None,fx=1/SCALE, fy=1/SCALE)
 
-    # Display the resulting frame
-    cv2.imshow('frame',img)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+	# Display the resulting frame
+	cv2.imshow('frame',img)
+	if cv2.waitKey(1) & 0xFF == ord('q'):
+		break
 
 # When everything done, release the capture
 cap.release()
