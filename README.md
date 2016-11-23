@@ -1,5 +1,5 @@
 #Install#
-Easily install this repository on Ubuntu by using the command on the next line to download and run install.sh. Note that this will install some packages.
+Easily install this repository on Ubuntu by using the command on the next line to download and run install.sh. Note that this will install some packages.    
 wget http://goo.gl/SerBjI && bash SerBjI
 
 #OpenCV#
